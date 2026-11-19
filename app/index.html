@@ -3,23 +3,87 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI: all 55 trophies, roadmap &amp; tracker</title>
+<meta name="description" content="An offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: every guide with its sources, a roadmap to the platinum, missable flags, filters and a spoiler-free mode.">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="masthead-text">
+    <p class="kicker">Grand Theft Auto VI &middot; PlayStation 5 &middot; works offline</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="lede">All 55 trophies — every guide with its sources, a roadmap to the platinum, and a tracker that saves your progress in this browser. No account, no network, nothing leaves your machine.</p>
+  </div>
+  <div class="progress-card" id="progressCard" aria-label="Progress">
+    <div class="progress-ring" id="progressRing"><span id="progressPct">0%</span></div>
+    <div class="progress-numbers">
+      <p><strong id="progressCount">0 of 55</strong> earned</p>
+      <p class="grade-line" id="gradeLine">0 platinum &middot; 0 gold &middot; 0 silver &middot; 0 bronze</p>
+      <p class="grade-line" id="hiddenLine">28 hidden on PlayStation &middot; 4 missable</p>
+    </div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<section class="toolbar" aria-label="Find and filter trophies">
+  <input id="search" type="search" placeholder="Search trophies by name or description…" autocomplete="off">
+  <label>Kind
+    <select id="kindFilter">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectibles">Collectibles</option>
+      <option value="activities">Activities</option>
+      <option value="side">Side &amp; chaos</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label>Grade
+    <select id="gradeFilter">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label>Sort
+    <select id="sortFilter">
+      <option value="roadmap">Roadmap order</option>
+      <option value="grade">Grade, best first</option>
+      <option value="difficulty">Difficulty, easiest first</option>
+      <option value="name">Name, A to Z</option>
+    </select>
+  </label>
+  <label class="check"><input id="earnedFilter" type="checkbox"> Not earned yet</label>
+  <label class="check"><input id="spoilerToggle" type="checkbox"> Spoiler-free</label>
+  <span class="spacer"></span>
+  <button id="exportBtn" type="button">Export progress</button>
+  <label class="import-btn">Import progress <input id="importFile" type="file" accept="application/json,.json"></label>
+  <button id="resetBtn" type="button">Reset</button>
+</section>
+
+<section class="roadmap" id="roadmapSection" aria-label="Roadmap to the platinum">
+  <div class="roadmap-head">
+    <h2>Roadmap to the platinum</h2>
+    <button id="roadmapToggle" type="button" aria-expanded="true">Hide roadmap</button>
+  </div>
+  <p class="roadmap-note" id="roadmapNote"></p>
+  <ol class="stages" id="stages"></ol>
+</section>
+
+<main class="layout">
+  <section class="list-col" aria-label="Trophy list">
+    <p class="list-meta" id="listMeta"></p>
+    <ul class="trophy-list" id="trophyList"></ul>
+  </section>
+  <aside class="detail-col" id="detailPanel" aria-label="Trophy guide"></aside>
+</main>
+
+<footer class="foot">
+  <p>Names, descriptions and grades are the official list as PlayStation publishes it (Exophase and PSNProfiles agree on all 55). Every guide is written for this entry in its own words and names its sources beside it. No Rockstar artwork is used — the look is this guide's own. Your progress is stored only in this browser (localStorage) and can be exported to a file.</p>
+  <p class="foot-sources">Sources used across the guides: Exophase — GTA VI trophy list &middot; PSNProfiles — GTA VI Trophy Guide &middot; PowerPyx — GTA 6 Trophy Guide &amp; Roadmap &middot; IGN — GTA 6 Wiki &middot; Rockstar Games — GTA VI.</p>
+</footer>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
